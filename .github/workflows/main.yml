@@ -1,46 +1,47 @@
-name: Test Sync Specific Images
+name: Sync Huge Images with Skopeo
 
 on:
-  workflow_dispatch: # 允许手动点击按钮触发
+  workflow_dispatch:
 
 env:
-  # 你的阿里云配置
   ACR_REGISTRY: crpi-0scrtxym3druakoy.cn-hangzhou.personal.cr.aliyuncs.com
   ACR_NAMESPACE: zhangkaixiang01
   ACR_REPO: sweb.eval
   ACR_USERNAME: aliyun2381460840
 
 jobs:
-  mirror-images:
+  skopeo-copy:
     runs-on: ubuntu-latest
     steps:
-      - name: Login to Alibaba Cloud ACR
-        uses: docker/login-action@v3
-        with:
-          registry: ${{ env.ACR_REGISTRY }}
-          username: ${{ env.ACR_USERNAME }}
-          password: ${{ secrets.ACR_PASSWORD }} # 这里会自动读取刚才设置的密钥
-
-      # --- 处理第一个镜像 (Monai) ---
-      - name: Sync Image 1 (Monai)
+      # 1. 安装 Skopeo (Github Runner 自带 Docker 但不一定有 Skopeo)
+      - name: Install Skopeo
         run: |
-          # 1. 拉取源镜像
-          docker pull docker.io/xingyaoww/sweb.eval.x86_64.project-monai_s_monai-6246:latest
-          
-          # 2. 打标签 (为了存入你的同一个仓库，我给它加了个后缀 tag: monai_6246)
-          docker tag docker.io/xingyaoww/sweb.eval.x86_64.project-monai_s_monai-6246:latest ${{ env.ACR_REGISTRY }}/${{ env.ACR_NAMESPACE }}/${{ env.ACR_REPO }}:monai_6246
-          
-          # 3. 推送
-          docker push ${{ env.ACR_REGISTRY }}/${{ env.ACR_NAMESPACE }}/${{ env.ACR_REPO }}:monai_6246
+          sudo apt-get update
+          sudo apt-get install -y skopeo
 
-      # --- 处理第二个镜像 (Astropy) ---
-      - name: Sync Image 2 (Astropy)
+      # 2. 登录两个仓库
+      - name: Login to Registries
         run: |
-          # 1. 拉取源镜像
-          docker pull swebench/sweb.eval.x86_64.astropy_1776_astropy-12907:latest
+          # 登录源 (Docker Hub) - 公共镜像不需要密码，但为了防限流建议登录(如果没号可跳过)
+          # skopeo login docker.io ... 
           
-          # 2. 打标签 (加后缀 tag: astropy_12907)
-          docker tag swebench/sweb.eval.x86_64.astropy_1776_astropy-12907:latest ${{ env.ACR_REGISTRY }}/${{ env.ACR_NAMESPACE }}/${{ env.ACR_REPO }}:astropy_12907
-          
-          # 3. 推送
-          docker push ${{ env.ACR_REGISTRY }}/${{ env.ACR_NAMESPACE }}/${{ env.ACR_REPO }}:astropy_12907
+          # 登录目标 (阿里云)
+          skopeo login ${{ env.ACR_REGISTRY }} --username ${{ env.ACR_USERNAME }} --password "19931010ZKXzkx"
+
+      # 3. 搬运 Monai (使用 copy 命令，不占磁盘)
+      - name: Sync Monai (No Disk Usage)
+        run: |
+          skopeo copy \
+            --override-os linux \
+            --override-arch amd64 \
+            docker://docker.io/xingyaoww/sweb.eval.x86_64.project-monai_s_monai-6246:latest \
+            docker://${{ env.ACR_REGISTRY }}/${{ env.ACR_NAMESPACE }}/${{ env.ACR_REPO }}:monai_6246
+
+      # 4. 搬运 Astropy (使用 copy 命令，不占磁盘)
+      - name: Sync Astropy (No Disk Usage)
+        run: |
+          skopeo copy \
+            --override-os linux \
+            --override-arch amd64 \
+            docker://swebench/sweb.eval.x86_64.astropy_1776_astropy-12907:latest \
+            docker://${{ env.ACR_REGISTRY }}/${{ env.ACR_NAMESPACE }}/${{ env.ACR_REPO }}:astropy_12907
