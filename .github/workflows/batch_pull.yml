@@ -12,167 +12,167 @@ jobs:
       - name: Install Skopeo
         run: sudo apt-get update && sudo apt-get install -y skopeo
       - name: Login ACR
-        run: skopeo login ${ env.ACR_REGISTRY } -u ${ env.ACR_USERNAME } -p ${ secrets.ACR_PASSWORD }
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
       - name: Sync bokeh__bokeh-13491
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.bokeh_s_bokeh-13491:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:bokeh__bokeh-13491
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.bokeh_s_bokeh-13491:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:bokeh__bokeh-13491
       - name: Sync facebookresearch__hydra-1733
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.facebookresearch_s_hydra-1733:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:facebookresearch__hydra-1733
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.facebookresearch_s_hydra-1733:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:facebookresearch__hydra-1733
       - name: Sync pydantic__pydantic-6111
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pydantic_s_pydantic-6111:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:pydantic__pydantic-6111
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pydantic_s_pydantic-6111:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pydantic__pydantic-6111
       - name: Sync pandas-dev__pandas-49579
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-49579:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:pandas-dev__pandas-49579
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-49579:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pandas-dev__pandas-49579
       - name: Sync conan-io__conan-14616
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.conan-io_s_conan-14616:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:conan-io__conan-14616
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.conan-io_s_conan-14616:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:conan-io__conan-14616
   batch_1:
     runs-on: ubuntu-latest
     steps:
       - name: Install Skopeo
         run: sudo apt-get update && sudo apt-get install -y skopeo
       - name: Login ACR
-        run: skopeo login ${ env.ACR_REGISTRY } -u ${ env.ACR_USERNAME } -p ${ secrets.ACR_PASSWORD }
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
       - name: Sync Project-MONAI__MONAI-5254
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.project-monai_s_monai-5254:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:Project-MONAI__MONAI-5254
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.project-monai_s_monai-5254:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:Project-MONAI__MONAI-5254
       - name: Sync getmoto__moto-5794
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.getmoto_s_moto-5794:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:getmoto__moto-5794
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.getmoto_s_moto-5794:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:getmoto__moto-5794
       - name: Sync getmoto__moto-6868
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.getmoto_s_moto-6868:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:getmoto__moto-6868
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.getmoto_s_moto-6868:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:getmoto__moto-6868
       - name: Sync Project-MONAI__MONAI-3715
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.project-monai_s_monai-3715:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:Project-MONAI__MONAI-3715
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.project-monai_s_monai-3715:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:Project-MONAI__MONAI-3715
       - name: Sync iterative__dvc-8360
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.iterative_s_dvc-8360:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:iterative__dvc-8360
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.iterative_s_dvc-8360:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:iterative__dvc-8360
   batch_2:
     runs-on: ubuntu-latest
     steps:
       - name: Install Skopeo
         run: sudo apt-get update && sudo apt-get install -y skopeo
       - name: Login ACR
-        run: skopeo login ${ env.ACR_REGISTRY } -u ${ env.ACR_USERNAME } -p ${ secrets.ACR_PASSWORD }
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
       - name: Sync iterative__dvc-8364
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.iterative_s_dvc-8364:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:iterative__dvc-8364
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.iterative_s_dvc-8364:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:iterative__dvc-8364
       - name: Sync getmoto__moto-4847
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.getmoto_s_moto-4847:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:getmoto__moto-4847
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.getmoto_s_moto-4847:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:getmoto__moto-4847
       - name: Sync Project-MONAI__MONAI-1765
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.project-monai_s_monai-1765:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:Project-MONAI__MONAI-1765
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.project-monai_s_monai-1765:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:Project-MONAI__MONAI-1765
       - name: Sync getmoto__moto-6736
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.getmoto_s_moto-6736:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:getmoto__moto-6736
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.getmoto_s_moto-6736:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:getmoto__moto-6736
       - name: Sync pandas-dev__pandas-47754
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-47754:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:pandas-dev__pandas-47754
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-47754:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pandas-dev__pandas-47754
   batch_3:
     runs-on: ubuntu-latest
     steps:
       - name: Install Skopeo
         run: sudo apt-get update && sudo apt-get install -y skopeo
       - name: Login ACR
-        run: skopeo login ${ env.ACR_REGISTRY } -u ${ env.ACR_USERNAME } -p ${ secrets.ACR_PASSWORD }
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
       - name: Sync iterative__dvc-1809
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.iterative_s_dvc-1809:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:iterative__dvc-1809
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.iterative_s_dvc-1809:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:iterative__dvc-1809
       - name: Sync pandas-dev__pandas-52177
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-52177:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:pandas-dev__pandas-52177
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-52177:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pandas-dev__pandas-52177
       - name: Sync Project-MONAI__MONAI-6385
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.project-monai_s_monai-6385:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:Project-MONAI__MONAI-6385
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.project-monai_s_monai-6385:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:Project-MONAI__MONAI-6385
       - name: Sync python__mypy-10036
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.python_s_mypy-10036:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:python__mypy-10036
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.python_s_mypy-10036:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:python__mypy-10036
       - name: Sync pandas-dev__pandas-53736
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-53736:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:pandas-dev__pandas-53736
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-53736:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pandas-dev__pandas-53736
   batch_4:
     runs-on: ubuntu-latest
     steps:
       - name: Install Skopeo
         run: sudo apt-get update && sudo apt-get install -y skopeo
       - name: Login ACR
-        run: skopeo login ${ env.ACR_REGISTRY } -u ${ env.ACR_USERNAME } -p ${ secrets.ACR_PASSWORD }
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
       - name: Sync python__mypy-14988
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.python_s_mypy-14988:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:python__mypy-14988
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.python_s_mypy-14988:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:python__mypy-14988
       - name: Sync pandas-dev__pandas-58226
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-58226:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:pandas-dev__pandas-58226
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-58226:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pandas-dev__pandas-58226
       - name: Sync dask__dask-10159
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.dask_s_dask-10159:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:dask__dask-10159
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.dask_s_dask-10159:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:dask__dask-10159
       - name: Sync python__mypy-11420
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.python_s_mypy-11420:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:python__mypy-11420
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.python_s_mypy-11420:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:python__mypy-11420
       - name: Sync pydantic__pydantic-8027
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pydantic_s_pydantic-8027:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:pydantic__pydantic-8027
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pydantic_s_pydantic-8027:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pydantic__pydantic-8027
   batch_5:
     runs-on: ubuntu-latest
     steps:
       - name: Install Skopeo
         run: sudo apt-get update && sudo apt-get install -y skopeo
       - name: Login ACR
-        run: skopeo login ${ env.ACR_REGISTRY } -u ${ env.ACR_USERNAME } -p ${ secrets.ACR_PASSWORD }
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
       - name: Sync pandas-dev__pandas-51987
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-51987:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:pandas-dev__pandas-51987
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-51987:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pandas-dev__pandas-51987
       - name: Sync dask__dask-10404
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.dask_s_dask-10404:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:dask__dask-10404
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.dask_s_dask-10404:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:dask__dask-10404
       - name: Sync Project-MONAI__MONAI-6127
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.project-monai_s_monai-6127:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:Project-MONAI__MONAI-6127
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.project-monai_s_monai-6127:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:Project-MONAI__MONAI-6127
       - name: Sync dask__dask-6893
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.dask_s_dask-6893:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:dask__dask-6893
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.dask_s_dask-6893:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:dask__dask-6893
       - name: Sync Project-MONAI__MONAI-5468
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.project-monai_s_monai-5468:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:Project-MONAI__MONAI-5468
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.project-monai_s_monai-5468:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:Project-MONAI__MONAI-5468
   batch_6:
     runs-on: ubuntu-latest
     steps:
       - name: Install Skopeo
         run: sudo apt-get update && sudo apt-get install -y skopeo
       - name: Login ACR
-        run: skopeo login ${ env.ACR_REGISTRY } -u ${ env.ACR_USERNAME } -p ${ secrets.ACR_PASSWORD }
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
       - name: Sync modin-project__modin-6937
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.modin-project_s_modin-6937:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:modin-project__modin-6937
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.modin-project_s_modin-6937:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:modin-project__modin-6937
       - name: Sync pandas-dev__pandas-48540
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-48540:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:pandas-dev__pandas-48540
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-48540:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pandas-dev__pandas-48540
       - name: Sync python__mypy-11134
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.python_s_mypy-11134:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:python__mypy-11134
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.python_s_mypy-11134:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:python__mypy-11134
       - name: Sync pandas-dev__pandas-53220
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-53220:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:pandas-dev__pandas-53220
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-53220:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pandas-dev__pandas-53220
       - name: Sync pandas-dev__pandas-53855
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-53855:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:pandas-dev__pandas-53855
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-53855:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pandas-dev__pandas-53855
   batch_7:
     runs-on: ubuntu-latest
     steps:
       - name: Install Skopeo
         run: sudo apt-get update && sudo apt-get install -y skopeo
       - name: Login ACR
-        run: skopeo login ${ env.ACR_REGISTRY } -u ${ env.ACR_USERNAME } -p ${ secrets.ACR_PASSWORD }
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
       - name: Sync Project-MONAI__MONAI-3979
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.project-monai_s_monai-3979:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:Project-MONAI__MONAI-3979
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.project-monai_s_monai-3979:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:Project-MONAI__MONAI-3979
       - name: Sync Project-MONAI__MONAI-3143
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.project-monai_s_monai-3143:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:Project-MONAI__MONAI-3143
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.project-monai_s_monai-3143:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:Project-MONAI__MONAI-3143
       - name: Sync pandas-dev__pandas-58231
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-58231:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:pandas-dev__pandas-58231
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-58231:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pandas-dev__pandas-58231
       - name: Sync pandas-dev__pandas-51548
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-51548:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:pandas-dev__pandas-51548
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-51548:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pandas-dev__pandas-51548
       - name: Sync pandas-dev__pandas-50947
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-50947:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:pandas-dev__pandas-50947
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-50947:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pandas-dev__pandas-50947
   batch_8:
     runs-on: ubuntu-latest
     steps:
       - name: Install Skopeo
         run: sudo apt-get update && sudo apt-get install -y skopeo
       - name: Login ACR
-        run: skopeo login ${ env.ACR_REGISTRY } -u ${ env.ACR_USERNAME } -p ${ secrets.ACR_PASSWORD }
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
       - name: Sync getmoto__moto-6086
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.getmoto_s_moto-6086:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:getmoto__moto-6086
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.getmoto_s_moto-6086:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:getmoto__moto-6086
       - name: Sync pandas-dev__pandas-53205
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-53205:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:pandas-dev__pandas-53205
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-53205:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pandas-dev__pandas-53205
       - name: Sync getmoto__moto-6578
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.getmoto_s_moto-6578:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:getmoto__moto-6578
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.getmoto_s_moto-6578:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:getmoto__moto-6578
       - name: Sync conan-io__conan-13610
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.conan-io_s_conan-13610:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:conan-io__conan-13610
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.conan-io_s_conan-13610:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:conan-io__conan-13610
       - name: Sync pandas-dev__pandas-54130
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-54130:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:pandas-dev__pandas-54130
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-54130:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pandas-dev__pandas-54130
   batch_9:
     runs-on: ubuntu-latest
     steps:
       - name: Install Skopeo
         run: sudo apt-get update && sudo apt-get install -y skopeo
       - name: Login ACR
-        run: skopeo login ${ env.ACR_REGISTRY } -u ${ env.ACR_USERNAME } -p ${ secrets.ACR_PASSWORD }
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
       - name: Sync iterative__dvc-9511
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.iterative_s_dvc-9511:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:iterative__dvc-9511
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.iterative_s_dvc-9511:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:iterative__dvc-9511
       - name: Sync pandas-dev__pandas-55927
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-55927:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:pandas-dev__pandas-55927
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.pandas-dev_s_pandas-55927:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pandas-dev__pandas-55927
       - name: Sync modin-project__modin-6873
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.modin-project_s_modin-6873:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:modin-project__modin-6873
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.modin-project_s_modin-6873:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:modin-project__modin-6873
       - name: Sync getmoto__moto-5920
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.getmoto_s_moto-5920:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:getmoto__moto-5920
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.getmoto_s_moto-5920:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:getmoto__moto-5920
       - name: Sync python__mypy-10766
-        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.python_s_mypy-10766:latest docker://${ env.ACR_REGISTRY }/${ env.ACR_NAMESPACE }/${ env.ACR_REPO }:python__mypy-10766
+        run: skopeo copy --override-os linux --override-arch amd64 docker://docker.io/xingyaoww/sweb.eval.x86_64.python_s_mypy-10766:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:python__mypy-10766
