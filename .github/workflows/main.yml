@@ -1,0 +1,46 @@
+name: Test Sync Specific Images
+
+on:
+  workflow_dispatch: # 允许手动点击按钮触发
+
+env:
+  # 你的阿里云配置
+  ACR_REGISTRY: crpi-0scrtxym3druakoy.cn-hangzhou.personal.cr.aliyuncs.com
+  ACR_NAMESPACE: zhangkaixiang01
+  ACR_REPO: sweb.eval
+  ACR_USERNAME: aliyun2381460840
+
+jobs:
+  mirror-images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login to Alibaba Cloud ACR
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.ACR_REGISTRY }}
+          username: ${{ env.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }} # 这里会自动读取刚才设置的密钥
+
+      # --- 处理第一个镜像 (Monai) ---
+      - name: Sync Image 1 (Monai)
+        run: |
+          # 1. 拉取源镜像
+          docker pull docker.io/xingyaoww/sweb.eval.x86_64.project-monai_s_monai-6246:latest
+          
+          # 2. 打标签 (为了存入你的同一个仓库，我给它加了个后缀 tag: monai_6246)
+          docker tag docker.io/xingyaoww/sweb.eval.x86_64.project-monai_s_monai-6246:latest ${{ env.ACR_REGISTRY }}/${{ env.ACR_NAMESPACE }}/${{ env.ACR_REPO }}:monai_6246
+          
+          # 3. 推送
+          docker push ${{ env.ACR_REGISTRY }}/${{ env.ACR_NAMESPACE }}/${{ env.ACR_REPO }}:monai_6246
+
+      # --- 处理第二个镜像 (Astropy) ---
+      - name: Sync Image 2 (Astropy)
+        run: |
+          # 1. 拉取源镜像
+          docker pull swebench/sweb.eval.x86_64.astropy_1776_astropy-12907:latest
+          
+          # 2. 打标签 (加后缀 tag: astropy_12907)
+          docker tag swebench/sweb.eval.x86_64.astropy_1776_astropy-12907:latest ${{ env.ACR_REGISTRY }}/${{ env.ACR_NAMESPACE }}/${{ env.ACR_REPO }}:astropy_12907
+          
+          # 3. 推送
+          docker push ${{ env.ACR_REGISTRY }}/${{ env.ACR_NAMESPACE }}/${{ env.ACR_REPO }}:astropy_12907
