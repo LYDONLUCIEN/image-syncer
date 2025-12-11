@@ -1,4 +1,4 @@
-name: Sync Images to ACR LITE (BALANCED-SEED-42)
+name: Sync Images to ACR (BALANCED)
 on: workflow_dispatch
 env:
   ACR_REGISTRY: crpi-0scrtxym3druakoy.cn-hangzhou.personal.cr.aliyuncs.com
@@ -8,171 +8,481 @@ env:
 jobs:
   batch_0:
     runs-on: ubuntu-latest
+    timeout-minutes: 1440
     steps:
       - name: Install Skopeo
         run: sudo apt-get update && sudo apt-get install -y skopeo
       - name: Login ACR
         run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
       - name: Sync sympy__sympy-13177
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-13177:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-13177
+        run: |
+          echo "Start syncing sympy__sympy-13177..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-13177:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-13177; then
+            echo "SUCCESS: sympy__sympy-13177"
+          else
+            echo "FAILED: sympy__sympy-13177" >&2
+          fi
       - name: Sync sympy__sympy-13471
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-13471:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-13471
+        run: |
+          echo "Start syncing sympy__sympy-13471..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-13471:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-13471; then
+            echo "SUCCESS: sympy__sympy-13471"
+          else
+            echo "FAILED: sympy__sympy-13471" >&2
+          fi
       - name: Sync matplotlib__matplotlib-25332
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-25332:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:matplotlib__matplotlib-25332
+        run: |
+          echo "Start syncing matplotlib__matplotlib-25332..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-25332:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:matplotlib__matplotlib-25332; then
+            echo "SUCCESS: matplotlib__matplotlib-25332"
+          else
+            echo "FAILED: matplotlib__matplotlib-25332" >&2
+          fi
       - name: Sync sphinx-doc__sphinx-8273
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8273:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sphinx-doc__sphinx-8273
+        run: |
+          echo "Start syncing sphinx-doc__sphinx-8273..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8273:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sphinx-doc__sphinx-8273; then
+            echo "SUCCESS: sphinx-doc__sphinx-8273"
+          else
+            echo "FAILED: sphinx-doc__sphinx-8273" >&2
+          fi
       - name: Sync django__django-14855
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-14855:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-14855
+        run: |
+          echo "Start syncing django__django-14855..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-14855:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-14855; then
+            echo "SUCCESS: django__django-14855"
+          else
+            echo "FAILED: django__django-14855" >&2
+          fi
   batch_1:
     runs-on: ubuntu-latest
+    timeout-minutes: 1440
     steps:
       - name: Install Skopeo
         run: sudo apt-get update && sudo apt-get install -y skopeo
       - name: Login ACR
         run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
       - name: Sync sympy__sympy-16281
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-16281:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-16281
+        run: |
+          echo "Start syncing sympy__sympy-16281..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-16281:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-16281; then
+            echo "SUCCESS: sympy__sympy-16281"
+          else
+            echo "FAILED: sympy__sympy-16281" >&2
+          fi
       - name: Sync django__django-12747
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-12747:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-12747
+        run: |
+          echo "Start syncing django__django-12747..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-12747:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-12747; then
+            echo "SUCCESS: django__django-12747"
+          else
+            echo "FAILED: django__django-12747" >&2
+          fi
       - name: Sync django__django-11019
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-11019:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-11019
+        run: |
+          echo "Start syncing django__django-11019..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-11019:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-11019; then
+            echo "SUCCESS: django__django-11019"
+          else
+            echo "FAILED: django__django-11019" >&2
+          fi
       - name: Sync sympy__sympy-13437
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-13437:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-13437
+        run: |
+          echo "Start syncing sympy__sympy-13437..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-13437:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-13437; then
+            echo "SUCCESS: sympy__sympy-13437"
+          else
+            echo "FAILED: sympy__sympy-13437" >&2
+          fi
       - name: Sync django__django-11039
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-11039:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-11039
+        run: |
+          echo "Start syncing django__django-11039..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-11039:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-11039; then
+            echo "SUCCESS: django__django-11039"
+          else
+            echo "FAILED: django__django-11039" >&2
+          fi
   batch_2:
     runs-on: ubuntu-latest
+    timeout-minutes: 1440
     steps:
       - name: Install Skopeo
         run: sudo apt-get update && sudo apt-get install -y skopeo
       - name: Login ACR
         run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
       - name: Sync django__django-14997
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-14997:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-14997
+        run: |
+          echo "Start syncing django__django-14997..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-14997:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-14997; then
+            echo "SUCCESS: django__django-14997"
+          else
+            echo "FAILED: django__django-14997" >&2
+          fi
       - name: Sync django__django-12497
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-12497:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-12497
+        run: |
+          echo "Start syncing django__django-12497..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-12497:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-12497; then
+            echo "SUCCESS: django__django-12497"
+          else
+            echo "FAILED: django__django-12497" >&2
+          fi
       - name: Sync sympy__sympy-18532
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-18532:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-18532
+        run: |
+          echo "Start syncing sympy__sympy-18532..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-18532:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-18532; then
+            echo "SUCCESS: sympy__sympy-18532"
+          else
+            echo "FAILED: sympy__sympy-18532" >&2
+          fi
       - name: Sync django__django-12308
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-12308:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-12308
+        run: |
+          echo "Start syncing django__django-12308..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-12308:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-12308; then
+            echo "SUCCESS: django__django-12308"
+          else
+            echo "FAILED: django__django-12308" >&2
+          fi
       - name: Sync mwaskom__seaborn-3407
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.mwaskom_1776_seaborn-3407:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:mwaskom__seaborn-3407
+        run: |
+          echo "Start syncing mwaskom__seaborn-3407..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.mwaskom_1776_seaborn-3407:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:mwaskom__seaborn-3407; then
+            echo "SUCCESS: mwaskom__seaborn-3407"
+          else
+            echo "FAILED: mwaskom__seaborn-3407" >&2
+          fi
   batch_3:
     runs-on: ubuntu-latest
+    timeout-minutes: 1440
     steps:
       - name: Install Skopeo
         run: sudo apt-get update && sudo apt-get install -y skopeo
       - name: Login ACR
         run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
       - name: Sync django__django-14238
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-14238:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-14238
+        run: |
+          echo "Start syncing django__django-14238..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-14238:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-14238; then
+            echo "SUCCESS: django__django-14238"
+          else
+            echo "FAILED: django__django-14238" >&2
+          fi
       - name: Sync pytest-dev__pytest-11143
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-11143:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pytest-dev__pytest-11143
+        run: |
+          echo "Start syncing pytest-dev__pytest-11143..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-11143:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pytest-dev__pytest-11143; then
+            echo "SUCCESS: pytest-dev__pytest-11143"
+          else
+            echo "FAILED: pytest-dev__pytest-11143" >&2
+          fi
       - name: Sync sympy__sympy-24152
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-24152:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-24152
+        run: |
+          echo "Start syncing sympy__sympy-24152..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-24152:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-24152; then
+            echo "SUCCESS: sympy__sympy-24152"
+          else
+            echo "FAILED: sympy__sympy-24152" >&2
+          fi
       - name: Sync django__django-14608
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-14608:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-14608
+        run: |
+          echo "Start syncing django__django-14608..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-14608:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-14608; then
+            echo "SUCCESS: django__django-14608"
+          else
+            echo "FAILED: django__django-14608" >&2
+          fi
       - name: Sync scikit-learn__scikit-learn-13439
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13439:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:scikit-learn__scikit-learn-13439
+        run: |
+          echo "Start syncing scikit-learn__scikit-learn-13439..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13439:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:scikit-learn__scikit-learn-13439; then
+            echo "SUCCESS: scikit-learn__scikit-learn-13439"
+          else
+            echo "FAILED: scikit-learn__scikit-learn-13439" >&2
+          fi
   batch_4:
     runs-on: ubuntu-latest
+    timeout-minutes: 1440
     steps:
       - name: Install Skopeo
         run: sudo apt-get update && sudo apt-get install -y skopeo
       - name: Login ACR
         run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
       - name: Sync matplotlib__matplotlib-25498
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-25498:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:matplotlib__matplotlib-25498
+        run: |
+          echo "Start syncing matplotlib__matplotlib-25498..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-25498:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:matplotlib__matplotlib-25498; then
+            echo "SUCCESS: matplotlib__matplotlib-25498"
+          else
+            echo "FAILED: matplotlib__matplotlib-25498" >&2
+          fi
       - name: Sync sphinx-doc__sphinx-7975
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-7975:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sphinx-doc__sphinx-7975
+        run: |
+          echo "Start syncing sphinx-doc__sphinx-7975..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-7975:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sphinx-doc__sphinx-7975; then
+            echo "SUCCESS: sphinx-doc__sphinx-7975"
+          else
+            echo "FAILED: sphinx-doc__sphinx-7975" >&2
+          fi
       - name: Sync matplotlib__matplotlib-26020
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-26020:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:matplotlib__matplotlib-26020
+        run: |
+          echo "Start syncing matplotlib__matplotlib-26020..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-26020:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:matplotlib__matplotlib-26020; then
+            echo "SUCCESS: matplotlib__matplotlib-26020"
+          else
+            echo "FAILED: matplotlib__matplotlib-26020" >&2
+          fi
       - name: Sync django__django-11620
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-11620:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-11620
+        run: |
+          echo "Start syncing django__django-11620..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-11620:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-11620; then
+            echo "SUCCESS: django__django-11620"
+          else
+            echo "FAILED: django__django-11620" >&2
+          fi
       - name: Sync pytest-dev__pytest-7373
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-7373:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pytest-dev__pytest-7373
+        run: |
+          echo "Start syncing pytest-dev__pytest-7373..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-7373:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pytest-dev__pytest-7373; then
+            echo "SUCCESS: pytest-dev__pytest-7373"
+          else
+            echo "FAILED: pytest-dev__pytest-7373" >&2
+          fi
   batch_5:
     runs-on: ubuntu-latest
+    timeout-minutes: 1440
     steps:
       - name: Install Skopeo
         run: sudo apt-get update && sudo apt-get install -y skopeo
       - name: Login ACR
         run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
       - name: Sync scikit-learn__scikit-learn-11281
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-11281:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:scikit-learn__scikit-learn-11281
+        run: |
+          echo "Start syncing scikit-learn__scikit-learn-11281..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-11281:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:scikit-learn__scikit-learn-11281; then
+            echo "SUCCESS: scikit-learn__scikit-learn-11281"
+          else
+            echo "FAILED: scikit-learn__scikit-learn-11281" >&2
+          fi
       - name: Sync matplotlib__matplotlib-23562
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-23562:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:matplotlib__matplotlib-23562
+        run: |
+          echo "Start syncing matplotlib__matplotlib-23562..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-23562:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:matplotlib__matplotlib-23562; then
+            echo "SUCCESS: matplotlib__matplotlib-23562"
+          else
+            echo "FAILED: matplotlib__matplotlib-23562" >&2
+          fi
       - name: Sync sympy__sympy-18199
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-18199:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-18199
+        run: |
+          echo "Start syncing sympy__sympy-18199..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-18199:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-18199; then
+            echo "SUCCESS: sympy__sympy-18199"
+          else
+            echo "FAILED: sympy__sympy-18199" >&2
+          fi
       - name: Sync django__django-14672
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-14672:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-14672
+        run: |
+          echo "Start syncing django__django-14672..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-14672:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-14672; then
+            echo "SUCCESS: django__django-14672"
+          else
+            echo "FAILED: django__django-14672" >&2
+          fi
       - name: Sync pallets__flask-4045
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.pallets_1776_flask-4045:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pallets__flask-4045
+        run: |
+          echo "Start syncing pallets__flask-4045..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.pallets_1776_flask-4045:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pallets__flask-4045; then
+            echo "SUCCESS: pallets__flask-4045"
+          else
+            echo "FAILED: pallets__flask-4045" >&2
+          fi
   batch_6:
     runs-on: ubuntu-latest
+    timeout-minutes: 1440
     steps:
       - name: Install Skopeo
         run: sudo apt-get update && sudo apt-get install -y skopeo
       - name: Login ACR
         run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
       - name: Sync sympy__sympy-17022
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-17022:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-17022
+        run: |
+          echo "Start syncing sympy__sympy-17022..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-17022:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-17022; then
+            echo "SUCCESS: sympy__sympy-17022"
+          else
+            echo "FAILED: sympy__sympy-17022" >&2
+          fi
       - name: Sync sympy__sympy-13647
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-13647:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-13647
+        run: |
+          echo "Start syncing sympy__sympy-13647..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-13647:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-13647; then
+            echo "SUCCESS: sympy__sympy-13647"
+          else
+            echo "FAILED: sympy__sympy-13647" >&2
+          fi
       - name: Sync django__django-11815
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-11815:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-11815
+        run: |
+          echo "Start syncing django__django-11815..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-11815:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-11815; then
+            echo "SUCCESS: django__django-11815"
+          else
+            echo "FAILED: django__django-11815" >&2
+          fi
       - name: Sync psf__requests-2674
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.psf_1776_requests-2674:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:psf__requests-2674
+        run: |
+          echo "Start syncing psf__requests-2674..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.psf_1776_requests-2674:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:psf__requests-2674; then
+            echo "SUCCESS: psf__requests-2674"
+          else
+            echo "FAILED: psf__requests-2674" >&2
+          fi
       - name: Sync sympy__sympy-13146
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-13146:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-13146
+        run: |
+          echo "Start syncing sympy__sympy-13146..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-13146:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-13146; then
+            echo "SUCCESS: sympy__sympy-13146"
+          else
+            echo "FAILED: sympy__sympy-13146" >&2
+          fi
   batch_7:
     runs-on: ubuntu-latest
+    timeout-minutes: 1440
     steps:
       - name: Install Skopeo
         run: sudo apt-get update && sudo apt-get install -y skopeo
       - name: Login ACR
         run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
       - name: Sync sympy__sympy-20639
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-20639:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-20639
+        run: |
+          echo "Start syncing sympy__sympy-20639..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-20639:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-20639; then
+            echo "SUCCESS: sympy__sympy-20639"
+          else
+            echo "FAILED: sympy__sympy-20639" >&2
+          fi
       - name: Sync pylint-dev__pylint-7080
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.pylint-dev_1776_pylint-7080:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pylint-dev__pylint-7080
+        run: |
+          echo "Start syncing pylint-dev__pylint-7080..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.pylint-dev_1776_pylint-7080:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pylint-dev__pylint-7080; then
+            echo "SUCCESS: pylint-dev__pylint-7080"
+          else
+            echo "FAILED: pylint-dev__pylint-7080" >&2
+          fi
       - name: Sync pydata__xarray-5131
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.pydata_1776_xarray-5131:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pydata__xarray-5131
+        run: |
+          echo "Start syncing pydata__xarray-5131..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.pydata_1776_xarray-5131:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pydata__xarray-5131; then
+            echo "SUCCESS: pydata__xarray-5131"
+          else
+            echo "FAILED: pydata__xarray-5131" >&2
+          fi
       - name: Sync scikit-learn__scikit-learn-13497
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13497:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:scikit-learn__scikit-learn-13497
+        run: |
+          echo "Start syncing scikit-learn__scikit-learn-13497..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13497:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:scikit-learn__scikit-learn-13497; then
+            echo "SUCCESS: scikit-learn__scikit-learn-13497"
+          else
+            echo "FAILED: scikit-learn__scikit-learn-13497" >&2
+          fi
       - name: Sync django__django-11564
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-11564:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-11564
+        run: |
+          echo "Start syncing django__django-11564..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-11564:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-11564; then
+            echo "SUCCESS: django__django-11564"
+          else
+            echo "FAILED: django__django-11564" >&2
+          fi
   batch_8:
     runs-on: ubuntu-latest
+    timeout-minutes: 1440
     steps:
       - name: Install Skopeo
         run: sudo apt-get update && sudo apt-get install -y skopeo
       - name: Login ACR
         run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
       - name: Sync django__django-12286
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-12286:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-12286
+        run: |
+          echo "Start syncing django__django-12286..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-12286:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-12286; then
+            echo "SUCCESS: django__django-12286"
+          else
+            echo "FAILED: django__django-12286" >&2
+          fi
       - name: Sync django__django-15819
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-15819:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-15819
+        run: |
+          echo "Start syncing django__django-15819..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-15819:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-15819; then
+            echo "SUCCESS: django__django-15819"
+          else
+            echo "FAILED: django__django-15819" >&2
+          fi
       - name: Sync sympy__sympy-18835
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-18835:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-18835
+        run: |
+          echo "Start syncing sympy__sympy-18835..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-18835:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-18835; then
+            echo "SUCCESS: sympy__sympy-18835"
+          else
+            echo "FAILED: sympy__sympy-18835" >&2
+          fi
       - name: Sync astropy__astropy-7746
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-7746:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:astropy__astropy-7746
+        run: |
+          echo "Start syncing astropy__astropy-7746..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-7746:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:astropy__astropy-7746; then
+            echo "SUCCESS: astropy__astropy-7746"
+          else
+            echo "FAILED: astropy__astropy-7746" >&2
+          fi
       - name: Sync django__django-13660
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-13660:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-13660
+        run: |
+          echo "Start syncing django__django-13660..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-13660:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-13660; then
+            echo "SUCCESS: django__django-13660"
+          else
+            echo "FAILED: django__django-13660" >&2
+          fi
   batch_9:
     runs-on: ubuntu-latest
+    timeout-minutes: 1440
     steps:
       - name: Install Skopeo
         run: sudo apt-get update && sudo apt-get install -y skopeo
       - name: Login ACR
         run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
       - name: Sync pytest-dev__pytest-5413
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-5413:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pytest-dev__pytest-5413
+        run: |
+          echo "Start syncing pytest-dev__pytest-5413..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-5413:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pytest-dev__pytest-5413; then
+            echo "SUCCESS: pytest-dev__pytest-5413"
+          else
+            echo "FAILED: pytest-dev__pytest-5413" >&2
+          fi
       - name: Sync django__django-12453
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-12453:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-12453
+        run: |
+          echo "Start syncing django__django-12453..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-12453:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-12453; then
+            echo "SUCCESS: django__django-12453"
+          else
+            echo "FAILED: django__django-12453" >&2
+          fi
       - name: Sync sphinx-doc__sphinx-8627
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8627:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sphinx-doc__sphinx-8627
+        run: |
+          echo "Start syncing sphinx-doc__sphinx-8627..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8627:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sphinx-doc__sphinx-8627; then
+            echo "SUCCESS: sphinx-doc__sphinx-8627"
+          else
+            echo "FAILED: sphinx-doc__sphinx-8627" >&2
+          fi
       - name: Sync scikit-learn__scikit-learn-14087
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-14087:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:scikit-learn__scikit-learn-14087
+        run: |
+          echo "Start syncing scikit-learn__scikit-learn-14087..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-14087:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:scikit-learn__scikit-learn-14087; then
+            echo "SUCCESS: scikit-learn__scikit-learn-14087"
+          else
+            echo "FAILED: scikit-learn__scikit-learn-14087" >&2
+          fi
       - name: Sync django__django-11630
-        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-11630:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-11630
+        run: |
+          echo "Start syncing django__django-11630..."
+          if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-11630:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-11630; then
+            echo "SUCCESS: django__django-11630"
+          else
+            echo "FAILED: django__django-11630" >&2
+          fi
