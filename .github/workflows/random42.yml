@@ -1,0 +1,178 @@
+name: Sync Images to ACR LITE (BALANCED-SEED-42)
+on: workflow_dispatch
+env:
+  ACR_REGISTRY: crpi-0scrtxym3druakoy.cn-hangzhou.personal.cr.aliyuncs.com
+  ACR_NAMESPACE: zhangkaixiang01
+  ACR_REPO: sweb.eval
+  ACR_USERNAME: aliyun2381460840
+jobs:
+  batch_0:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Skopeo
+        run: sudo apt-get update && sudo apt-get install -y skopeo
+      - name: Login ACR
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
+      - name: Sync sympy__sympy-13177
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-13177:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-13177
+      - name: Sync sympy__sympy-13471
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-13471:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-13471
+      - name: Sync matplotlib__matplotlib-25332
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-25332:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:matplotlib__matplotlib-25332
+      - name: Sync sphinx-doc__sphinx-8273
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8273:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sphinx-doc__sphinx-8273
+      - name: Sync django__django-14855
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-14855:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-14855
+  batch_1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Skopeo
+        run: sudo apt-get update && sudo apt-get install -y skopeo
+      - name: Login ACR
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
+      - name: Sync sympy__sympy-16281
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-16281:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-16281
+      - name: Sync django__django-12747
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-12747:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-12747
+      - name: Sync django__django-11019
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-11019:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-11019
+      - name: Sync sympy__sympy-13437
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-13437:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-13437
+      - name: Sync django__django-11039
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-11039:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-11039
+  batch_2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Skopeo
+        run: sudo apt-get update && sudo apt-get install -y skopeo
+      - name: Login ACR
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
+      - name: Sync django__django-14997
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-14997:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-14997
+      - name: Sync django__django-12497
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-12497:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-12497
+      - name: Sync sympy__sympy-18532
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-18532:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-18532
+      - name: Sync django__django-12308
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-12308:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-12308
+      - name: Sync mwaskom__seaborn-3407
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.mwaskom_1776_seaborn-3407:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:mwaskom__seaborn-3407
+  batch_3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Skopeo
+        run: sudo apt-get update && sudo apt-get install -y skopeo
+      - name: Login ACR
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
+      - name: Sync django__django-14238
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-14238:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-14238
+      - name: Sync pytest-dev__pytest-11143
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-11143:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pytest-dev__pytest-11143
+      - name: Sync sympy__sympy-24152
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-24152:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-24152
+      - name: Sync django__django-14608
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-14608:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-14608
+      - name: Sync scikit-learn__scikit-learn-13439
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13439:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:scikit-learn__scikit-learn-13439
+  batch_4:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Skopeo
+        run: sudo apt-get update && sudo apt-get install -y skopeo
+      - name: Login ACR
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
+      - name: Sync matplotlib__matplotlib-25498
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-25498:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:matplotlib__matplotlib-25498
+      - name: Sync sphinx-doc__sphinx-7975
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-7975:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sphinx-doc__sphinx-7975
+      - name: Sync matplotlib__matplotlib-26020
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-26020:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:matplotlib__matplotlib-26020
+      - name: Sync django__django-11620
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-11620:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-11620
+      - name: Sync pytest-dev__pytest-7373
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-7373:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pytest-dev__pytest-7373
+  batch_5:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Skopeo
+        run: sudo apt-get update && sudo apt-get install -y skopeo
+      - name: Login ACR
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
+      - name: Sync scikit-learn__scikit-learn-11281
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-11281:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:scikit-learn__scikit-learn-11281
+      - name: Sync matplotlib__matplotlib-23562
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-23562:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:matplotlib__matplotlib-23562
+      - name: Sync sympy__sympy-18199
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-18199:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-18199
+      - name: Sync django__django-14672
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-14672:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-14672
+      - name: Sync pallets__flask-4045
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.pallets_1776_flask-4045:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pallets__flask-4045
+  batch_6:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Skopeo
+        run: sudo apt-get update && sudo apt-get install -y skopeo
+      - name: Login ACR
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
+      - name: Sync sympy__sympy-17022
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-17022:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-17022
+      - name: Sync sympy__sympy-13647
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-13647:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-13647
+      - name: Sync django__django-11815
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-11815:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-11815
+      - name: Sync psf__requests-2674
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.psf_1776_requests-2674:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:psf__requests-2674
+      - name: Sync sympy__sympy-13146
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-13146:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-13146
+  batch_7:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Skopeo
+        run: sudo apt-get update && sudo apt-get install -y skopeo
+      - name: Login ACR
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
+      - name: Sync sympy__sympy-20639
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-20639:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-20639
+      - name: Sync pylint-dev__pylint-7080
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.pylint-dev_1776_pylint-7080:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pylint-dev__pylint-7080
+      - name: Sync pydata__xarray-5131
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.pydata_1776_xarray-5131:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pydata__xarray-5131
+      - name: Sync scikit-learn__scikit-learn-13497
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13497:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:scikit-learn__scikit-learn-13497
+      - name: Sync django__django-11564
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-11564:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-11564
+  batch_8:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Skopeo
+        run: sudo apt-get update && sudo apt-get install -y skopeo
+      - name: Login ACR
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
+      - name: Sync django__django-12286
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-12286:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-12286
+      - name: Sync django__django-15819
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-15819:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-15819
+      - name: Sync sympy__sympy-18835
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-18835:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-18835
+      - name: Sync astropy__astropy-7746
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-7746:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:astropy__astropy-7746
+      - name: Sync django__django-13660
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-13660:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-13660
+  batch_9:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Skopeo
+        run: sudo apt-get update && sudo apt-get install -y skopeo
+      - name: Login ACR
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
+      - name: Sync pytest-dev__pytest-5413
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-5413:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pytest-dev__pytest-5413
+      - name: Sync django__django-12453
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-12453:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-12453
+      - name: Sync sphinx-doc__sphinx-8627
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8627:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sphinx-doc__sphinx-8627
+      - name: Sync scikit-learn__scikit-learn-14087
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-14087:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:scikit-learn__scikit-learn-14087
+      - name: Sync django__django-11630
+        run: skopeo copy --retry-times 5 --command-timeout 20m --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-11630:latest docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-11630
