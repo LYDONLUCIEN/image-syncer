@@ -1,0 +1,788 @@
+name: RANDOM42-2
+on: workflow_dispatch
+env:
+  ACR_REGISTRY: crpi-0scrtxym3druakoy.cn-hangzhou.personal.cr.aliyuncs.com
+  ACR_NAMESPACE: zhangkaixiang01
+  ACR_REPO: sweb.eval
+  ACR_USERNAME: aliyun2381460840
+jobs:
+  batch_0:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1440
+    steps:
+      - name: Install Skopeo
+        run: sudo apt-get update && sudo apt-get install -y skopeo
+      - name: Login ACR
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
+      - name: Sync sympy__sympy-20212
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-20212"
+          echo "Checking if sympy__sympy-20212 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: sympy__sympy-20212 already exists."
+          else
+            echo "🚀 Syncing sympy__sympy-20212..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-20212:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: sympy__sympy-20212"
+            else
+              echo "❌ FAILED: sympy__sympy-20212" >&2
+            fi
+          fi
+      - name: Sync matplotlib__matplotlib-25079
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:matplotlib__matplotlib-25079"
+          echo "Checking if matplotlib__matplotlib-25079 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: matplotlib__matplotlib-25079 already exists."
+          else
+            echo "🚀 Syncing matplotlib__matplotlib-25079..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-25079:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: matplotlib__matplotlib-25079"
+            else
+              echo "❌ FAILED: matplotlib__matplotlib-25079" >&2
+            fi
+          fi
+      - name: Sync sphinx-doc__sphinx-8435
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sphinx-doc__sphinx-8435"
+          echo "Checking if sphinx-doc__sphinx-8435 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: sphinx-doc__sphinx-8435 already exists."
+          else
+            echo "🚀 Syncing sphinx-doc__sphinx-8435..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8435:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: sphinx-doc__sphinx-8435"
+            else
+              echo "❌ FAILED: sphinx-doc__sphinx-8435" >&2
+            fi
+          fi
+      - name: Sync django__django-14534
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-14534"
+          echo "Checking if django__django-14534 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: django__django-14534 already exists."
+          else
+            echo "🚀 Syncing django__django-14534..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-14534:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: django__django-14534"
+            else
+              echo "❌ FAILED: django__django-14534" >&2
+            fi
+          fi
+      - name: Sync sympy__sympy-18057
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-18057"
+          echo "Checking if sympy__sympy-18057 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: sympy__sympy-18057 already exists."
+          else
+            echo "🚀 Syncing sympy__sympy-18057..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-18057:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: sympy__sympy-18057"
+            else
+              echo "❌ FAILED: sympy__sympy-18057" >&2
+            fi
+          fi
+  batch_1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1440
+    steps:
+      - name: Install Skopeo
+        run: sudo apt-get update && sudo apt-get install -y skopeo
+      - name: Login ACR
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
+      - name: Sync django__django-13158
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-13158"
+          echo "Checking if django__django-13158 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: django__django-13158 already exists."
+          else
+            echo "🚀 Syncing django__django-13158..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-13158:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: django__django-13158"
+            else
+              echo "❌ FAILED: django__django-13158" >&2
+            fi
+          fi
+      - name: Sync django__django-17051
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-17051"
+          echo "Checking if django__django-17051 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: django__django-17051 already exists."
+          else
+            echo "🚀 Syncing django__django-17051..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-17051:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: django__django-17051"
+            else
+              echo "❌ FAILED: django__django-17051" >&2
+            fi
+          fi
+      - name: Sync sympy__sympy-11897
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-11897"
+          echo "Checking if sympy__sympy-11897 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: sympy__sympy-11897 already exists."
+          else
+            echo "🚀 Syncing sympy__sympy-11897..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-11897:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: sympy__sympy-11897"
+            else
+              echo "❌ FAILED: sympy__sympy-11897" >&2
+            fi
+          fi
+      - name: Sync django__django-12915
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-12915"
+          echo "Checking if django__django-12915 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: django__django-12915 already exists."
+          else
+            echo "🚀 Syncing django__django-12915..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-12915:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: django__django-12915"
+            else
+              echo "❌ FAILED: django__django-12915" >&2
+            fi
+          fi
+      - name: Sync django__django-15695
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-15695"
+          echo "Checking if django__django-15695 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: django__django-15695 already exists."
+          else
+            echo "🚀 Syncing django__django-15695..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-15695:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: django__django-15695"
+            else
+              echo "❌ FAILED: django__django-15695" >&2
+            fi
+          fi
+  batch_2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1440
+    steps:
+      - name: Install Skopeo
+        run: sudo apt-get update && sudo apt-get install -y skopeo
+      - name: Login ACR
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
+      - name: Sync django__django-12983
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-12983"
+          echo "Checking if django__django-12983 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: django__django-12983 already exists."
+          else
+            echo "🚀 Syncing django__django-12983..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-12983:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: django__django-12983"
+            else
+              echo "❌ FAILED: django__django-12983" >&2
+            fi
+          fi
+      - name: Sync sympy__sympy-20442
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-20442"
+          echo "Checking if sympy__sympy-20442 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: sympy__sympy-20442 already exists."
+          else
+            echo "🚀 Syncing sympy__sympy-20442..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-20442:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: sympy__sympy-20442"
+            else
+              echo "❌ FAILED: sympy__sympy-20442" >&2
+            fi
+          fi
+      - name: Sync django__django-12113
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-12113"
+          echo "Checking if django__django-12113 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: django__django-12113 already exists."
+          else
+            echo "🚀 Syncing django__django-12113..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-12113:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: django__django-12113"
+            else
+              echo "❌ FAILED: django__django-12113" >&2
+            fi
+          fi
+      - name: Sync mwaskom__seaborn-3190
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:mwaskom__seaborn-3190"
+          echo "Checking if mwaskom__seaborn-3190 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: mwaskom__seaborn-3190 already exists."
+          else
+            echo "🚀 Syncing mwaskom__seaborn-3190..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.mwaskom_1776_seaborn-3190:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: mwaskom__seaborn-3190"
+            else
+              echo "❌ FAILED: mwaskom__seaborn-3190" >&2
+            fi
+          fi
+      - name: Sync django__django-15851
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-15851"
+          echo "Checking if django__django-15851 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: django__django-15851 already exists."
+          else
+            echo "🚀 Syncing django__django-15851..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-15851:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: django__django-15851"
+            else
+              echo "❌ FAILED: django__django-15851" >&2
+            fi
+          fi
+  batch_3:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1440
+    steps:
+      - name: Install Skopeo
+        run: sudo apt-get update && sudo apt-get install -y skopeo
+      - name: Login ACR
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
+      - name: Sync pytest-dev__pytest-5692
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pytest-dev__pytest-5692"
+          echo "Checking if pytest-dev__pytest-5692 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: pytest-dev__pytest-5692 already exists."
+          else
+            echo "🚀 Syncing pytest-dev__pytest-5692..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-5692:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: pytest-dev__pytest-5692"
+            else
+              echo "❌ FAILED: pytest-dev__pytest-5692" >&2
+            fi
+          fi
+      - name: Sync sympy__sympy-14396
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-14396"
+          echo "Checking if sympy__sympy-14396 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: sympy__sympy-14396 already exists."
+          else
+            echo "🚀 Syncing sympy__sympy-14396..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-14396:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: sympy__sympy-14396"
+            else
+              echo "❌ FAILED: sympy__sympy-14396" >&2
+            fi
+          fi
+      - name: Sync django__django-11797
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-11797"
+          echo "Checking if django__django-11797 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: django__django-11797 already exists."
+          else
+            echo "🚀 Syncing django__django-11797..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-11797:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: django__django-11797"
+            else
+              echo "❌ FAILED: django__django-11797" >&2
+            fi
+          fi
+      - name: Sync scikit-learn__scikit-learn-10949
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:scikit-learn__scikit-learn-10949"
+          echo "Checking if scikit-learn__scikit-learn-10949 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: scikit-learn__scikit-learn-10949 already exists."
+          else
+            echo "🚀 Syncing scikit-learn__scikit-learn-10949..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-10949:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: scikit-learn__scikit-learn-10949"
+            else
+              echo "❌ FAILED: scikit-learn__scikit-learn-10949" >&2
+            fi
+          fi
+      - name: Sync matplotlib__matplotlib-23913
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:matplotlib__matplotlib-23913"
+          echo "Checking if matplotlib__matplotlib-23913 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: matplotlib__matplotlib-23913 already exists."
+          else
+            echo "🚀 Syncing matplotlib__matplotlib-23913..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-23913:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: matplotlib__matplotlib-23913"
+            else
+              echo "❌ FAILED: matplotlib__matplotlib-23913" >&2
+            fi
+          fi
+  batch_4:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1440
+    steps:
+      - name: Install Skopeo
+        run: sudo apt-get update && sudo apt-get install -y skopeo
+      - name: Login ACR
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
+      - name: Sync django__django-11099
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-11099"
+          echo "Checking if django__django-11099 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: django__django-11099 already exists."
+          else
+            echo "🚀 Syncing django__django-11099..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-11099:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: django__django-11099"
+            else
+              echo "❌ FAILED: django__django-11099" >&2
+            fi
+          fi
+      - name: Sync matplotlib__matplotlib-24970
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:matplotlib__matplotlib-24970"
+          echo "Checking if matplotlib__matplotlib-24970 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: matplotlib__matplotlib-24970 already exists."
+          else
+            echo "🚀 Syncing matplotlib__matplotlib-24970..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-24970:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: matplotlib__matplotlib-24970"
+            else
+              echo "❌ FAILED: matplotlib__matplotlib-24970" >&2
+            fi
+          fi
+      - name: Sync django__django-16400
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-16400"
+          echo "Checking if django__django-16400 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: django__django-16400 already exists."
+          else
+            echo "🚀 Syncing django__django-16400..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-16400:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: django__django-16400"
+            else
+              echo "❌ FAILED: django__django-16400" >&2
+            fi
+          fi
+      - name: Sync scikit-learn__scikit-learn-13241
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:scikit-learn__scikit-learn-13241"
+          echo "Checking if scikit-learn__scikit-learn-13241 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: scikit-learn__scikit-learn-13241 already exists."
+          else
+            echo "🚀 Syncing scikit-learn__scikit-learn-13241..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13241:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: scikit-learn__scikit-learn-13241"
+            else
+              echo "❌ FAILED: scikit-learn__scikit-learn-13241" >&2
+            fi
+          fi
+      - name: Sync pytest-dev__pytest-5495
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pytest-dev__pytest-5495"
+          echo "Checking if pytest-dev__pytest-5495 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: pytest-dev__pytest-5495 already exists."
+          else
+            echo "🚀 Syncing pytest-dev__pytest-5495..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-5495:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: pytest-dev__pytest-5495"
+            else
+              echo "❌ FAILED: pytest-dev__pytest-5495" >&2
+            fi
+          fi
+  batch_5:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1440
+    steps:
+      - name: Install Skopeo
+        run: sudo apt-get update && sudo apt-get install -y skopeo
+      - name: Login ACR
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
+      - name: Sync matplotlib__matplotlib-25442
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:matplotlib__matplotlib-25442"
+          echo "Checking if matplotlib__matplotlib-25442 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: matplotlib__matplotlib-25442 already exists."
+          else
+            echo "🚀 Syncing matplotlib__matplotlib-25442..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-25442:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: matplotlib__matplotlib-25442"
+            else
+              echo "❌ FAILED: matplotlib__matplotlib-25442" >&2
+            fi
+          fi
+      - name: Sync sympy__sympy-15346
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-15346"
+          echo "Checking if sympy__sympy-15346 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: sympy__sympy-15346 already exists."
+          else
+            echo "🚀 Syncing sympy__sympy-15346..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-15346:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: sympy__sympy-15346"
+            else
+              echo "❌ FAILED: sympy__sympy-15346" >&2
+            fi
+          fi
+      - name: Sync django__django-12856
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-12856"
+          echo "Checking if django__django-12856 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: django__django-12856 already exists."
+          else
+            echo "🚀 Syncing django__django-12856..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-12856:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: django__django-12856"
+            else
+              echo "❌ FAILED: django__django-12856" >&2
+            fi
+          fi
+      - name: Sync psf__requests-1963
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:psf__requests-1963"
+          echo "Checking if psf__requests-1963 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: psf__requests-1963 already exists."
+          else
+            echo "🚀 Syncing psf__requests-1963..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.psf_1776_requests-1963:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: psf__requests-1963"
+            else
+              echo "❌ FAILED: psf__requests-1963" >&2
+            fi
+          fi
+      - name: Sync sympy__sympy-21612
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-21612"
+          echo "Checking if sympy__sympy-21612 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: sympy__sympy-21612 already exists."
+          else
+            echo "🚀 Syncing sympy__sympy-21612..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-21612:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: sympy__sympy-21612"
+            else
+              echo "❌ FAILED: sympy__sympy-21612" >&2
+            fi
+          fi
+  batch_6:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1440
+    steps:
+      - name: Install Skopeo
+        run: sudo apt-get update && sudo apt-get install -y skopeo
+      - name: Login ACR
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
+      - name: Sync sphinx-doc__sphinx-10451
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sphinx-doc__sphinx-10451"
+          echo "Checking if sphinx-doc__sphinx-10451 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: sphinx-doc__sphinx-10451 already exists."
+          else
+            echo "🚀 Syncing sphinx-doc__sphinx-10451..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-10451:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: sphinx-doc__sphinx-10451"
+            else
+              echo "❌ FAILED: sphinx-doc__sphinx-10451" >&2
+            fi
+          fi
+      - name: Sync django__django-11905
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-11905"
+          echo "Checking if django__django-11905 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: django__django-11905 already exists."
+          else
+            echo "🚀 Syncing django__django-11905..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-11905:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: django__django-11905"
+            else
+              echo "❌ FAILED: django__django-11905" >&2
+            fi
+          fi
+      - name: Sync pylint-dev__pylint-7228
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pylint-dev__pylint-7228"
+          echo "Checking if pylint-dev__pylint-7228 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: pylint-dev__pylint-7228 already exists."
+          else
+            echo "🚀 Syncing pylint-dev__pylint-7228..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.pylint-dev_1776_pylint-7228:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: pylint-dev__pylint-7228"
+            else
+              echo "❌ FAILED: pylint-dev__pylint-7228" >&2
+            fi
+          fi
+      - name: Sync sympy__sympy-17655
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-17655"
+          echo "Checking if sympy__sympy-17655 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: sympy__sympy-17655 already exists."
+          else
+            echo "🚀 Syncing sympy__sympy-17655..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-17655:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: sympy__sympy-17655"
+            else
+              echo "❌ FAILED: sympy__sympy-17655" >&2
+            fi
+          fi
+      - name: Sync sympy__sympy-12419
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-12419"
+          echo "Checking if sympy__sympy-12419 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: sympy__sympy-12419 already exists."
+          else
+            echo "🚀 Syncing sympy__sympy-12419..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-12419:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: sympy__sympy-12419"
+            else
+              echo "❌ FAILED: sympy__sympy-12419" >&2
+            fi
+          fi
+  batch_7:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1440
+    steps:
+      - name: Install Skopeo
+        run: sudo apt-get update && sudo apt-get install -y skopeo
+      - name: Login ACR
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
+      - name: Sync sympy__sympy-18087
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-18087"
+          echo "Checking if sympy__sympy-18087 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: sympy__sympy-18087 already exists."
+          else
+            echo "🚀 Syncing sympy__sympy-18087..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-18087:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: sympy__sympy-18087"
+            else
+              echo "❌ FAILED: sympy__sympy-18087" >&2
+            fi
+          fi
+      - name: Sync scikit-learn__scikit-learn-14092
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:scikit-learn__scikit-learn-14092"
+          echo "Checking if scikit-learn__scikit-learn-14092 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: scikit-learn__scikit-learn-14092 already exists."
+          else
+            echo "🚀 Syncing scikit-learn__scikit-learn-14092..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-14092:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: scikit-learn__scikit-learn-14092"
+            else
+              echo "❌ FAILED: scikit-learn__scikit-learn-14092" >&2
+            fi
+          fi
+      - name: Sync scikit-learn__scikit-learn-11040
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:scikit-learn__scikit-learn-11040"
+          echo "Checking if scikit-learn__scikit-learn-11040 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: scikit-learn__scikit-learn-11040 already exists."
+          else
+            echo "🚀 Syncing scikit-learn__scikit-learn-11040..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-11040:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: scikit-learn__scikit-learn-11040"
+            else
+              echo "❌ FAILED: scikit-learn__scikit-learn-11040" >&2
+            fi
+          fi
+      - name: Sync sphinx-doc__sphinx-8282
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sphinx-doc__sphinx-8282"
+          echo "Checking if sphinx-doc__sphinx-8282 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: sphinx-doc__sphinx-8282 already exists."
+          else
+            echo "🚀 Syncing sphinx-doc__sphinx-8282..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8282:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: sphinx-doc__sphinx-8282"
+            else
+              echo "❌ FAILED: sphinx-doc__sphinx-8282" >&2
+            fi
+          fi
+      - name: Sync pydata__xarray-4094
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pydata__xarray-4094"
+          echo "Checking if pydata__xarray-4094 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: pydata__xarray-4094 already exists."
+          else
+            echo "🚀 Syncing pydata__xarray-4094..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.pydata_1776_xarray-4094:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: pydata__xarray-4094"
+            else
+              echo "❌ FAILED: pydata__xarray-4094" >&2
+            fi
+          fi
+  batch_8:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1440
+    steps:
+      - name: Install Skopeo
+        run: sudo apt-get update && sudo apt-get install -y skopeo
+      - name: Login ACR
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
+      - name: Sync astropy__astropy-12907
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:astropy__astropy-12907"
+          echo "Checking if astropy__astropy-12907 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: astropy__astropy-12907 already exists."
+          else
+            echo "🚀 Syncing astropy__astropy-12907..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-12907:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: astropy__astropy-12907"
+            else
+              echo "❌ FAILED: astropy__astropy-12907" >&2
+            fi
+          fi
+      - name: Sync django__django-13315
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-13315"
+          echo "Checking if django__django-13315 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: django__django-13315 already exists."
+          else
+            echo "🚀 Syncing django__django-13315..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-13315:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: django__django-13315"
+            else
+              echo "❌ FAILED: django__django-13315" >&2
+            fi
+          fi
+      - name: Sync django__django-15790
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-15790"
+          echo "Checking if django__django-15790 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: django__django-15790 already exists."
+          else
+            echo "🚀 Syncing django__django-15790..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-15790:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: django__django-15790"
+            else
+              echo "❌ FAILED: django__django-15790" >&2
+            fi
+          fi
+      - name: Sync pytest-dev__pytest-5221
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pytest-dev__pytest-5221"
+          echo "Checking if pytest-dev__pytest-5221 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: pytest-dev__pytest-5221 already exists."
+          else
+            echo "🚀 Syncing pytest-dev__pytest-5221..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-5221:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: pytest-dev__pytest-5221"
+            else
+              echo "❌ FAILED: pytest-dev__pytest-5221" >&2
+            fi
+          fi
+      - name: Sync sympy__sympy-19254
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:sympy__sympy-19254"
+          echo "Checking if sympy__sympy-19254 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: sympy__sympy-19254 already exists."
+          else
+            echo "🚀 Syncing sympy__sympy-19254..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-19254:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: sympy__sympy-19254"
+            else
+              echo "❌ FAILED: sympy__sympy-19254" >&2
+            fi
+          fi
+  batch_9:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1440
+    steps:
+      - name: Install Skopeo
+        run: sudo apt-get update && sudo apt-get install -y skopeo
+      - name: Login ACR
+        run: skopeo login $ACR_REGISTRY -u $ACR_USERNAME -p ${{ secrets.ACR_PASSWORD }}
+      - name: Sync pallets__flask-5063
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:pallets__flask-5063"
+          echo "Checking if pallets__flask-5063 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: pallets__flask-5063 already exists."
+          else
+            echo "🚀 Syncing pallets__flask-5063..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.pallets_1776_flask-5063:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: pallets__flask-5063"
+            else
+              echo "❌ FAILED: pallets__flask-5063" >&2
+            fi
+          fi
+      - name: Sync django__django-15400
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-15400"
+          echo "Checking if django__django-15400 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: django__django-15400 already exists."
+          else
+            echo "🚀 Syncing django__django-15400..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-15400:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: django__django-15400"
+            else
+              echo "❌ FAILED: django__django-15400" >&2
+            fi
+          fi
+      - name: Sync django__django-11049
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-11049"
+          echo "Checking if django__django-11049 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: django__django-11049 already exists."
+          else
+            echo "🚀 Syncing django__django-11049..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-11049:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: django__django-11049"
+            else
+              echo "❌ FAILED: django__django-11049" >&2
+            fi
+          fi
+      - name: Sync django__django-13028
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-13028"
+          echo "Checking if django__django-13028 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: django__django-13028 already exists."
+          else
+            echo "🚀 Syncing django__django-13028..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-13028:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: django__django-13028"
+            else
+              echo "❌ FAILED: django__django-13028" >&2
+            fi
+          fi
+      - name: Sync django__django-15213
+        run: |
+          TARGET_IMAGE="docker://$ACR_REGISTRY/$ACR_NAMESPACE/$ACR_REPO:django__django-15213"
+          echo "Checking if django__django-15213 exists in ACR..."
+          if skopeo inspect --no-tags "$TARGET_IMAGE" > /dev/null 2>&1; then
+            echo "⏭️  SKIP: django__django-15213 already exists."
+          else
+            echo "🚀 Syncing django__django-15213..."
+            if skopeo copy --retry-times 5 --command-timeout 0 --override-os linux --override-arch amd64 docker://docker.io/swebench/sweb.eval.x86_64.django_1776_django-15213:latest "$TARGET_IMAGE"; then
+              echo "✅ SUCCESS: django__django-15213"
+            else
+              echo "❌ FAILED: django__django-15213" >&2
+            fi
+          fi
